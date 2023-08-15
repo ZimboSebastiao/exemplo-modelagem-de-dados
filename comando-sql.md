@@ -75,5 +75,4 @@ ALTER TABLE produtos
 ```sql
 ALTER TABLE fabricantes
     CHANGE nome sobrenome VARCHAR(20) NOT NULL;
-
 ```
