@@ -314,6 +314,7 @@ ORDER BY Total;
 ```sql
 SELECT 
     fabricantes.nome AS Fabricante,
+    SUM(produtos.quantidade) AS Estoque,
     COUNT(produtos.fabricante_id) AS "QTD de Produtos"
 FROM produtos INNER JOIN fabricantes
 ON produtos.fabricante_id = fabricantes.id
