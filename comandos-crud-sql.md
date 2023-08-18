@@ -260,3 +260,15 @@ FROM produtos;
 SELECT fabricante_id, SUM(preco) as Total FROM produtos
 GROUP BY fabricante_id;
 ```
+
+---
+
+## Consulas (Queries) em duas ou mais tabelas relacionadas (JUNÇÃO/JOIN)
+
+
+```sql
+SELECT produtos.nome, fabricantes.nome
+FROM produtos INNER JOIN fabricantes
+ON produtos.fabricante_id = fabricantes.id;
+
+```
