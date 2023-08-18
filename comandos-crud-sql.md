@@ -275,7 +275,7 @@ ON produtos.fabricante_id = fabricantes.id;
 
 ```
 
-### Nome do produto, nome do fabricante, ordenados pelo nome do produto
+### Nome do produto, nome do fabricante, ordenados pelo nome do produto eo preço do produto
 
 ```sql
 SELECT
@@ -284,5 +284,27 @@ SELECT
 FROM produtos INNER JOIN fabricantes
 ON produtos.fabricante_id = fabricantes.id
 ORDER BY Produto; -- ou produtos.nome;
+```
 
+```sql
+SELECT
+    produtos.nome as Produto,
+    produtos.preco as "Preço",
+    fabricantes.nome as Fabricante
+FROM produtos INNER JOIN fabricantes
+ON produtos.fabricante_id = fabricantes.id
+ORDER BY Produto, Fabricante; -- ou produtos.nome;
+```
+
+### Fabricante, soma dos preços e a quantidade de produtos
+
+```sql
+SELECT
+    fabricantes.nome AS Fabricante,
+    SUM(produtos.preco) AS Total,
+    COUNT(produtos.fabricante_id) AS "Qtd de Produtos"
+FROM produtos INNER JOIN fabricantes
+ON produtos.fabricante_id = fabricantes.id
+GROUP BY Fabricante
+ORDER BY Total;
 ```
