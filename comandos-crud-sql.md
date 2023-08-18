@@ -265,10 +265,24 @@ GROUP BY fabricante_id;
 
 ## Consulas (Queries) em duas ou mais tabelas relacionadas (JUNÇÃO/JOIN)
 
+### Exibir nome do produto e nome do fabricante
 
 ```sql
-SELECT produtos.nome, fabricantes.nome
+-- SELECT tabela.coluna, tabela.coluna
+SELECT produtos.nome AS Produto, fabricantes.nome as Fabricante
 FROM produtos INNER JOIN fabricantes
 ON produtos.fabricante_id = fabricantes.id;
+
+```
+
+### Nome do produto, nome do fabricante, ordenados pelo nome do produto
+
+```sql
+SELECT
+    produtos.nome as Produto,
+    fabricantes.nome as Fabricante
+FROM produtos INNER JOIN fabricantes
+ON produtos.fabricante_id = fabricantes.id
+ORDER BY Produto; -- ou produtos.nome;
 
 ```
